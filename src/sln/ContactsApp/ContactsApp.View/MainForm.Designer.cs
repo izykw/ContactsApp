@@ -30,12 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.SplitContainer = new System.Windows.Forms.SplitContainer();
+            this.NavigationPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.FileButton = new System.Windows.Forms.Button();
+            this.HelpButton = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
             this.FindLabel = new System.Windows.Forms.Label();
-            this.ContactFind = new System.Windows.Forms.TextBox();
+            this.FindContact = new System.Windows.Forms.TextBox();
             this.ContactListBox = new System.Windows.Forms.ListBox();
             this.EditPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.AddContact = new System.Windows.Forms.Button();
+            this.RemoveContact = new System.Windows.Forms.Button();
+            this.EditContact = new System.Windows.Forms.Button();
             this.BirthdayPanel = new System.Windows.Forms.Panel();
-            this.BirthdayContactLabel = new System.Windows.Forms.Label();
+            this.BirthdayPictureBox = new System.Windows.Forms.PictureBox();
+            this.ContactBirthdayLabel = new System.Windows.Forms.Label();
             this.BirthdayLabel = new System.Windows.Forms.Label();
             this.SiteLabel = new System.Windows.Forms.Label();
             this.MailLabel = new System.Windows.Forms.Label();
@@ -49,21 +57,13 @@
             this.ContactPhone = new System.Windows.Forms.TextBox();
             this.ContactName = new System.Windows.Forms.TextBox();
             this.ContactSurname = new System.Windows.Forms.TextBox();
-            this.FileButton = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
-            this.HelpButton = new System.Windows.Forms.Button();
-            this.NavigationPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.AddContact = new System.Windows.Forms.Button();
-            this.RemoveContact = new System.Windows.Forms.Button();
-            this.EditContact = new System.Windows.Forms.Button();
-            this.BirthdayPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
             this.SplitContainer.Panel2.SuspendLayout();
             this.SplitContainer.SuspendLayout();
+            this.NavigationPanel.SuspendLayout();
             this.EditPanel.SuspendLayout();
             this.BirthdayPanel.SuspendLayout();
-            this.NavigationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BirthdayPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +79,7 @@
             this.SplitContainer.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SplitContainer.Panel1.Controls.Add(this.NavigationPanel);
             this.SplitContainer.Panel1.Controls.Add(this.FindLabel);
-            this.SplitContainer.Panel1.Controls.Add(this.ContactFind);
+            this.SplitContainer.Panel1.Controls.Add(this.FindContact);
             this.SplitContainer.Panel1.Controls.Add(this.ContactListBox);
             this.SplitContainer.Panel1.Controls.Add(this.EditPanel);
             // 
@@ -103,6 +103,59 @@
             this.SplitContainer.SplitterDistance = 252;
             this.SplitContainer.TabIndex = 3;
             // 
+            // NavigationPanel
+            // 
+            this.NavigationPanel.ColumnCount = 3;
+            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
+            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
+            this.NavigationPanel.Controls.Add(this.FileButton, 0, 0);
+            this.NavigationPanel.Controls.Add(this.HelpButton, 2, 0);
+            this.NavigationPanel.Controls.Add(this.EditButton, 1, 0);
+            this.NavigationPanel.Location = new System.Drawing.Point(12, 3);
+            this.NavigationPanel.Name = "NavigationPanel";
+            this.NavigationPanel.RowCount = 1;
+            this.NavigationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.NavigationPanel.Size = new System.Drawing.Size(135, 29);
+            this.NavigationPanel.TabIndex = 15;
+            // 
+            // FileButton
+            // 
+            this.FileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FileButton.FlatAppearance.BorderSize = 0;
+            this.FileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FileButton.Location = new System.Drawing.Point(3, 3);
+            this.FileButton.Name = "FileButton";
+            this.FileButton.Size = new System.Drawing.Size(38, 23);
+            this.FileButton.TabIndex = 4;
+            this.FileButton.Text = "File";
+            this.FileButton.UseVisualStyleBackColor = true;
+            // 
+            // HelpButton
+            // 
+            this.HelpButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HelpButton.FlatAppearance.BorderSize = 0;
+            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HelpButton.Location = new System.Drawing.Point(91, 3);
+            this.HelpButton.Name = "HelpButton";
+            this.HelpButton.Size = new System.Drawing.Size(41, 23);
+            this.HelpButton.TabIndex = 14;
+            this.HelpButton.Text = "Help";
+            this.HelpButton.UseVisualStyleBackColor = true;
+            this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
+            // 
+            // EditButton
+            // 
+            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditButton.FlatAppearance.BorderSize = 0;
+            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditButton.Location = new System.Drawing.Point(47, 3);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(38, 23);
+            this.EditButton.TabIndex = 13;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = true;
+            // 
             // FindLabel
             // 
             this.FindLabel.AutoSize = true;
@@ -112,15 +165,15 @@
             this.FindLabel.TabIndex = 3;
             this.FindLabel.Text = "Find:";
             // 
-            // ContactFind
+            // FindContact
             // 
-            this.ContactFind.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FindContact.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactFind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactFind.Location = new System.Drawing.Point(45, 38);
-            this.ContactFind.Name = "ContactFind";
-            this.ContactFind.Size = new System.Drawing.Size(204, 20);
-            this.ContactFind.TabIndex = 2;
+            this.FindContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FindContact.Location = new System.Drawing.Point(45, 38);
+            this.FindContact.Name = "FindContact";
+            this.FindContact.Size = new System.Drawing.Size(204, 20);
+            this.FindContact.TabIndex = 2;
             // 
             // ContactListBox
             // 
@@ -130,6 +183,10 @@
             this.ContactListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ContactListBox.FormattingEnabled = true;
             this.ContactListBox.IntegralHeight = false;
+            this.ContactListBox.Items.AddRange(new object[] {
+            "Izy",
+            "Asta",
+            "Obito"});
             this.ContactListBox.Location = new System.Drawing.Point(12, 67);
             this.ContactListBox.Name = "ContactListBox";
             this.ContactListBox.Size = new System.Drawing.Size(237, 359);
@@ -152,27 +209,78 @@
             this.EditPanel.Size = new System.Drawing.Size(102, 39);
             this.EditPanel.TabIndex = 0;
             // 
+            // AddContact
+            // 
+            this.AddContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.AddContact;
+            this.AddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AddContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AddContact.FlatAppearance.BorderSize = 0;
+            this.AddContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddContact.Location = new System.Drawing.Point(3, 3);
+            this.AddContact.Name = "AddContact";
+            this.AddContact.Size = new System.Drawing.Size(26, 32);
+            this.AddContact.TabIndex = 0;
+            this.AddContact.UseVisualStyleBackColor = true;
+            this.AddContact.Click += new System.EventHandler(this.AddContact_Click);
+            // 
+            // RemoveContact
+            // 
+            this.RemoveContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.RemoveContact;
+            this.RemoveContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RemoveContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RemoveContact.FlatAppearance.BorderSize = 0;
+            this.RemoveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveContact.Location = new System.Drawing.Point(69, 3);
+            this.RemoveContact.Name = "RemoveContact";
+            this.RemoveContact.Size = new System.Drawing.Size(30, 32);
+            this.RemoveContact.TabIndex = 2;
+            this.RemoveContact.UseVisualStyleBackColor = true;
+            // 
+            // EditContact
+            // 
+            this.EditContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.EditContact;
+            this.EditContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EditContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EditContact.FlatAppearance.BorderSize = 0;
+            this.EditContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditContact.Location = new System.Drawing.Point(36, 3);
+            this.EditContact.Name = "EditContact";
+            this.EditContact.Size = new System.Drawing.Size(26, 32);
+            this.EditContact.TabIndex = 1;
+            this.EditContact.UseVisualStyleBackColor = true;
+            this.EditContact.Click += new System.EventHandler(this.EditContact_Click);
+            // 
             // BirthdayPanel
             // 
             this.BirthdayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BirthdayPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BirthdayPanel.Controls.Add(this.BirthdayPictureBox);
-            this.BirthdayPanel.Controls.Add(this.BirthdayContactLabel);
+            this.BirthdayPanel.Controls.Add(this.ContactBirthdayLabel);
             this.BirthdayPanel.Controls.Add(this.BirthdayLabel);
             this.BirthdayPanel.Location = new System.Drawing.Point(3, 390);
             this.BirthdayPanel.Name = "BirthdayPanel";
             this.BirthdayPanel.Size = new System.Drawing.Size(502, 92);
             this.BirthdayPanel.TabIndex = 12;
             // 
-            // BirthdayContactLabel
+            // BirthdayPictureBox
             // 
-            this.BirthdayContactLabel.AutoSize = true;
-            this.BirthdayContactLabel.Location = new System.Drawing.Point(83, 53);
-            this.BirthdayContactLabel.Name = "BirthdayContactLabel";
-            this.BirthdayContactLabel.Size = new System.Drawing.Size(83, 13);
-            this.BirthdayContactLabel.TabIndex = 1;
-            this.BirthdayContactLabel.Text = "Name, Surname";
+            this.BirthdayPictureBox.BackgroundImage = global::ContactsApp.View.Properties.Resources.ExclamationMark;
+            this.BirthdayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BirthdayPictureBox.Location = new System.Drawing.Point(13, 19);
+            this.BirthdayPictureBox.Name = "BirthdayPictureBox";
+            this.BirthdayPictureBox.Size = new System.Drawing.Size(64, 64);
+            this.BirthdayPictureBox.TabIndex = 13;
+            this.BirthdayPictureBox.TabStop = false;
+            // 
+            // ContactBirthdayLabel
+            // 
+            this.ContactBirthdayLabel.AutoSize = true;
+            this.ContactBirthdayLabel.Location = new System.Drawing.Point(83, 53);
+            this.ContactBirthdayLabel.Name = "ContactBirthdayLabel";
+            this.ContactBirthdayLabel.Size = new System.Drawing.Size(83, 13);
+            this.ContactBirthdayLabel.TabIndex = 1;
+            this.ContactBirthdayLabel.Text = "Name, Surname";
             // 
             // BirthdayLabel
             // 
@@ -300,107 +408,6 @@
             this.ContactSurname.Size = new System.Drawing.Size(422, 20);
             this.ContactSurname.TabIndex = 0;
             // 
-            // FileButton
-            // 
-            this.FileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FileButton.FlatAppearance.BorderSize = 0;
-            this.FileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FileButton.Location = new System.Drawing.Point(3, 3);
-            this.FileButton.Name = "FileButton";
-            this.FileButton.Size = new System.Drawing.Size(38, 23);
-            this.FileButton.TabIndex = 4;
-            this.FileButton.Text = "File";
-            this.FileButton.UseVisualStyleBackColor = true;
-            // 
-            // EditButton
-            // 
-            this.EditButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditButton.FlatAppearance.BorderSize = 0;
-            this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Location = new System.Drawing.Point(47, 3);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(38, 23);
-            this.EditButton.TabIndex = 13;
-            this.EditButton.Text = "Edit";
-            this.EditButton.UseVisualStyleBackColor = true;
-            // 
-            // HelpButton
-            // 
-            this.HelpButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.HelpButton.FlatAppearance.BorderSize = 0;
-            this.HelpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HelpButton.Location = new System.Drawing.Point(91, 3);
-            this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(41, 23);
-            this.HelpButton.TabIndex = 14;
-            this.HelpButton.Text = "Help";
-            this.HelpButton.UseVisualStyleBackColor = true;
-            // 
-            // NavigationPanel
-            // 
-            this.NavigationPanel.ColumnCount = 3;
-            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
-            this.NavigationPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
-            this.NavigationPanel.Controls.Add(this.FileButton, 0, 0);
-            this.NavigationPanel.Controls.Add(this.HelpButton, 2, 0);
-            this.NavigationPanel.Controls.Add(this.EditButton, 1, 0);
-            this.NavigationPanel.Location = new System.Drawing.Point(12, 3);
-            this.NavigationPanel.Name = "NavigationPanel";
-            this.NavigationPanel.RowCount = 1;
-            this.NavigationPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.NavigationPanel.Size = new System.Drawing.Size(135, 29);
-            this.NavigationPanel.TabIndex = 15;
-            // 
-            // AddContact
-            // 
-            this.AddContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.AddContact;
-            this.AddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AddContact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddContact.FlatAppearance.BorderSize = 0;
-            this.AddContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddContact.Location = new System.Drawing.Point(3, 3);
-            this.AddContact.Name = "AddContact";
-            this.AddContact.Size = new System.Drawing.Size(26, 32);
-            this.AddContact.TabIndex = 0;
-            this.AddContact.UseVisualStyleBackColor = true;
-            // 
-            // RemoveContact
-            // 
-            this.RemoveContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.RemoveContact;
-            this.RemoveContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RemoveContact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RemoveContact.FlatAppearance.BorderSize = 0;
-            this.RemoveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveContact.Location = new System.Drawing.Point(69, 3);
-            this.RemoveContact.Name = "RemoveContact";
-            this.RemoveContact.Size = new System.Drawing.Size(30, 32);
-            this.RemoveContact.TabIndex = 2;
-            this.RemoveContact.UseVisualStyleBackColor = true;
-            // 
-            // EditContact
-            // 
-            this.EditContact.BackgroundImage = global::ContactsApp.View.Properties.Resources.EditContact;
-            this.EditContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.EditContact.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EditContact.FlatAppearance.BorderSize = 0;
-            this.EditContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditContact.Location = new System.Drawing.Point(36, 3);
-            this.EditContact.Name = "EditContact";
-            this.EditContact.Size = new System.Drawing.Size(26, 32);
-            this.EditContact.TabIndex = 1;
-            this.EditContact.UseVisualStyleBackColor = true;
-            // 
-            // BirthdayPictureBox
-            // 
-            this.BirthdayPictureBox.BackgroundImage = global::ContactsApp.View.Properties.Resources.ExclamationMark;
-            this.BirthdayPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BirthdayPictureBox.Location = new System.Drawing.Point(13, 19);
-            this.BirthdayPictureBox.Name = "BirthdayPictureBox";
-            this.BirthdayPictureBox.Size = new System.Drawing.Size(64, 64);
-            this.BirthdayPictureBox.TabIndex = 13;
-            this.BirthdayPictureBox.TabStop = false;
-            // 
             // MainForm
             // 
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -417,10 +424,10 @@
             this.SplitContainer.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
             this.SplitContainer.ResumeLayout(false);
+            this.NavigationPanel.ResumeLayout(false);
             this.EditPanel.ResumeLayout(false);
             this.BirthdayPanel.ResumeLayout(false);
             this.BirthdayPanel.PerformLayout();
-            this.NavigationPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BirthdayPictureBox)).EndInit();
             this.ResumeLayout(false);
 
@@ -434,7 +441,7 @@
         private System.Windows.Forms.SplitContainer SplitContainer;
         private System.Windows.Forms.TableLayoutPanel EditPanel;
         private System.Windows.Forms.ListBox ContactListBox;
-        private System.Windows.Forms.TextBox ContactFind;
+        private System.Windows.Forms.TextBox FindContact;
         private System.Windows.Forms.Label FindLabel;
         private System.Windows.Forms.Label SiteLabel;
         private System.Windows.Forms.Label MailLabel;
@@ -450,7 +457,7 @@
         private System.Windows.Forms.TextBox ContactSurname;
         private System.Windows.Forms.PictureBox BirthdayPictureBox;
         private System.Windows.Forms.Panel BirthdayPanel;
-        private System.Windows.Forms.Label BirthdayContactLabel;
+        private System.Windows.Forms.Label ContactBirthdayLabel;
         private System.Windows.Forms.Label BirthdayLabel;
         private System.Windows.Forms.Button FileButton;
         private System.Windows.Forms.TableLayoutPanel NavigationPanel;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.CompleteButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.SurnameLabel = new System.Windows.Forms.Label();
@@ -49,22 +50,24 @@
             // CompleteButton
             // 
             this.CompleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CompleteButton.Location = new System.Drawing.Point(198, 185);
+            this.CompleteButton.Location = new System.Drawing.Point(196, 185);
             this.CompleteButton.Name = "CompleteButton";
             this.CompleteButton.Size = new System.Drawing.Size(75, 23);
             this.CompleteButton.TabIndex = 24;
             this.CompleteButton.Text = "OK";
             this.CompleteButton.UseVisualStyleBackColor = true;
+            this.CompleteButton.Click += new System.EventHandler(this.CompleteButton_Click);
             // 
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(279, 185);
+            this.CancelButton.Location = new System.Drawing.Point(277, 185);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 25;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SurnameLabel
             // 
@@ -127,7 +130,7 @@
             this.ContactSite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContactSite.Location = new System.Drawing.Point(70, 142);
             this.ContactSite.Name = "ContactSite";
-            this.ContactSite.Size = new System.Drawing.Size(275, 20);
+            this.ContactSite.Size = new System.Drawing.Size(273, 20);
             this.ContactSite.TabIndex = 32;
             // 
             // ContactSurname
@@ -137,7 +140,7 @@
             this.ContactSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContactSurname.Location = new System.Drawing.Point(70, 12);
             this.ContactSurname.Name = "ContactSurname";
-            this.ContactSurname.Size = new System.Drawing.Size(275, 20);
+            this.ContactSurname.Size = new System.Drawing.Size(273, 20);
             this.ContactSurname.TabIndex = 33;
             // 
             // ContactName
@@ -147,7 +150,7 @@
             this.ContactName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContactName.Location = new System.Drawing.Point(70, 38);
             this.ContactName.Name = "ContactName";
-            this.ContactName.Size = new System.Drawing.Size(275, 20);
+            this.ContactName.Size = new System.Drawing.Size(273, 20);
             this.ContactName.TabIndex = 34;
             // 
             // ContactPhone
@@ -157,7 +160,7 @@
             this.ContactPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContactPhone.Location = new System.Drawing.Point(70, 90);
             this.ContactPhone.Name = "ContactPhone";
-            this.ContactPhone.Size = new System.Drawing.Size(275, 20);
+            this.ContactPhone.Size = new System.Drawing.Size(273, 20);
             this.ContactPhone.TabIndex = 35;
             // 
             // ContactMail
@@ -167,7 +170,7 @@
             this.ContactMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ContactMail.Location = new System.Drawing.Point(70, 116);
             this.ContactMail.Name = "ContactMail";
-            this.ContactMail.Size = new System.Drawing.Size(275, 20);
+            this.ContactMail.Size = new System.Drawing.Size(273, 20);
             this.ContactMail.TabIndex = 36;
             // 
             // ContactBirthday
@@ -196,15 +199,16 @@
             this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Container.Location = new System.Drawing.Point(0, 0);
             this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(357, 211);
+            this.Container.Size = new System.Drawing.Size(355, 211);
             this.Container.TabIndex = 0;
             // 
             // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 211);
+            this.ClientSize = new System.Drawing.Size(355, 211);
             this.Controls.Add(this.Container);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(250, 250);
             this.Name = "ContactForm";
             this.Text = "ContactForm";
