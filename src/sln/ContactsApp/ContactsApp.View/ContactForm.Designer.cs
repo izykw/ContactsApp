@@ -37,11 +37,11 @@
             this.PhoneLabel = new System.Windows.Forms.Label();
             this.MailLabel = new System.Windows.Forms.Label();
             this.SiteLabel = new System.Windows.Forms.Label();
-            this.ContactSite = new System.Windows.Forms.TextBox();
+            this.ContactVkId = new System.Windows.Forms.TextBox();
             this.ContactSurname = new System.Windows.Forms.TextBox();
             this.ContactName = new System.Windows.Forms.TextBox();
             this.ContactPhone = new System.Windows.Forms.TextBox();
-            this.ContactMail = new System.Windows.Forms.TextBox();
+            this.ContactEmail = new System.Windows.Forms.TextBox();
             this.ContactBirthday = new System.Windows.Forms.DateTimePicker();
             this.Container = new System.Windows.Forms.Panel();
             this.Container.SuspendLayout();
@@ -123,15 +123,15 @@
             this.SiteLabel.TabIndex = 31;
             this.SiteLabel.Text = "vk.com:";
             // 
-            // ContactSite
+            // ContactVkId
             // 
-            this.ContactSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactVkId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactSite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactSite.Location = new System.Drawing.Point(70, 142);
-            this.ContactSite.Name = "ContactSite";
-            this.ContactSite.Size = new System.Drawing.Size(273, 20);
-            this.ContactSite.TabIndex = 32;
+            this.ContactVkId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContactVkId.Location = new System.Drawing.Point(70, 142);
+            this.ContactVkId.Name = "ContactVkId";
+            this.ContactVkId.Size = new System.Drawing.Size(273, 20);
+            this.ContactVkId.TabIndex = 32;
             // 
             // ContactSurname
             // 
@@ -163,15 +163,15 @@
             this.ContactPhone.Size = new System.Drawing.Size(273, 20);
             this.ContactPhone.TabIndex = 35;
             // 
-            // ContactMail
+            // ContactEmail
             // 
-            this.ContactMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactMail.Location = new System.Drawing.Point(70, 116);
-            this.ContactMail.Name = "ContactMail";
-            this.ContactMail.Size = new System.Drawing.Size(273, 20);
-            this.ContactMail.TabIndex = 36;
+            this.ContactEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContactEmail.Location = new System.Drawing.Point(70, 116);
+            this.ContactEmail.Name = "ContactEmail";
+            this.ContactEmail.Size = new System.Drawing.Size(273, 20);
+            this.ContactEmail.TabIndex = 36;
             // 
             // ContactBirthday
             // 
@@ -183,11 +183,11 @@
             // Container
             // 
             this.Container.Controls.Add(this.ContactBirthday);
-            this.Container.Controls.Add(this.ContactMail);
+            this.Container.Controls.Add(this.ContactEmail);
             this.Container.Controls.Add(this.ContactPhone);
             this.Container.Controls.Add(this.ContactName);
             this.Container.Controls.Add(this.ContactSurname);
-            this.Container.Controls.Add(this.ContactSite);
+            this.Container.Controls.Add(this.ContactVkId);
             this.Container.Controls.Add(this.SiteLabel);
             this.Container.Controls.Add(this.MailLabel);
             this.Container.Controls.Add(this.PhoneLabel);
@@ -228,11 +228,11 @@
         private System.Windows.Forms.Label PhoneLabel;
         private System.Windows.Forms.Label MailLabel;
         private System.Windows.Forms.Label SiteLabel;
-        private System.Windows.Forms.TextBox ContactSite;
+        private System.Windows.Forms.TextBox ContactVkId;
         private System.Windows.Forms.TextBox ContactSurname;
         private System.Windows.Forms.TextBox ContactName;
         private System.Windows.Forms.TextBox ContactPhone;
-        private System.Windows.Forms.TextBox ContactMail;
+        private System.Windows.Forms.TextBox ContactEmail;
         private System.Windows.Forms.DateTimePicker ContactBirthday;
         private System.Windows.Forms.Panel Container;
     }

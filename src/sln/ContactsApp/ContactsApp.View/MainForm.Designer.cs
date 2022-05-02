@@ -47,10 +47,10 @@
             this.DateOfBirthLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.SurnameLabel = new System.Windows.Forms.Label();
-            this.ContactBirthday = new System.Windows.Forms.DateTimePicker();
-            this.ContactSite = new System.Windows.Forms.TextBox();
-            this.ContactMail = new System.Windows.Forms.TextBox();
-            this.ContactPhone = new System.Windows.Forms.TextBox();
+            this.ContactDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.ContactVkId = new System.Windows.Forms.TextBox();
+            this.ContactEmail = new System.Windows.Forms.TextBox();
+            this.ContactPhoneNumber = new System.Windows.Forms.TextBox();
             this.ContactName = new System.Windows.Forms.TextBox();
             this.ContactSurname = new System.Windows.Forms.TextBox();
             this.Menu = new System.Windows.Forms.MenuStrip();
@@ -96,10 +96,10 @@
             this.SplitContainer.Panel2.Controls.Add(this.DateOfBirthLabel);
             this.SplitContainer.Panel2.Controls.Add(this.NameLabel);
             this.SplitContainer.Panel2.Controls.Add(this.SurnameLabel);
-            this.SplitContainer.Panel2.Controls.Add(this.ContactBirthday);
-            this.SplitContainer.Panel2.Controls.Add(this.ContactSite);
-            this.SplitContainer.Panel2.Controls.Add(this.ContactMail);
-            this.SplitContainer.Panel2.Controls.Add(this.ContactPhone);
+            this.SplitContainer.Panel2.Controls.Add(this.ContactDateOfBirth);
+            this.SplitContainer.Panel2.Controls.Add(this.ContactVkId);
+            this.SplitContainer.Panel2.Controls.Add(this.ContactEmail);
+            this.SplitContainer.Panel2.Controls.Add(this.ContactPhoneNumber);
             this.SplitContainer.Panel2.Controls.Add(this.ContactName);
             this.SplitContainer.Panel2.Controls.Add(this.ContactSurname);
             this.SplitContainer.Size = new System.Drawing.Size(761, 455);
@@ -141,6 +141,7 @@
             this.ContactListBox.Name = "ContactListBox";
             this.ContactListBox.Size = new System.Drawing.Size(237, 370);
             this.ContactListBox.TabIndex = 1;
+            this.ContactListBox.SelectedIndexChanged += new System.EventHandler(this.ContactListBox_SelectedIndexChanged);
             // 
             // EditPanel
             // 
@@ -296,46 +297,46 @@
             this.SurnameLabel.TabIndex = 6;
             this.SurnameLabel.Text = "Surname:";
             // 
-            // ContactBirthday
+            // ContactDateOfBirth
             // 
-            this.ContactBirthday.Enabled = false;
-            this.ContactBirthday.Location = new System.Drawing.Point(86, 58);
-            this.ContactBirthday.Name = "ContactBirthday";
-            this.ContactBirthday.Size = new System.Drawing.Size(138, 20);
-            this.ContactBirthday.TabIndex = 5;
+            this.ContactDateOfBirth.Enabled = false;
+            this.ContactDateOfBirth.Location = new System.Drawing.Point(86, 58);
+            this.ContactDateOfBirth.Name = "ContactDateOfBirth";
+            this.ContactDateOfBirth.Size = new System.Drawing.Size(138, 20);
+            this.ContactDateOfBirth.TabIndex = 5;
             // 
-            // ContactSite
+            // ContactVkId
             // 
-            this.ContactSite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactVkId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactSite.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactSite.Enabled = false;
-            this.ContactSite.Location = new System.Drawing.Point(86, 136);
-            this.ContactSite.Name = "ContactSite";
-            this.ContactSite.Size = new System.Drawing.Size(404, 20);
-            this.ContactSite.TabIndex = 4;
+            this.ContactVkId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContactVkId.Enabled = false;
+            this.ContactVkId.Location = new System.Drawing.Point(86, 136);
+            this.ContactVkId.Name = "ContactVkId";
+            this.ContactVkId.Size = new System.Drawing.Size(404, 20);
+            this.ContactVkId.TabIndex = 4;
             // 
-            // ContactMail
+            // ContactEmail
             // 
-            this.ContactMail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactMail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactMail.Enabled = false;
-            this.ContactMail.Location = new System.Drawing.Point(86, 110);
-            this.ContactMail.Name = "ContactMail";
-            this.ContactMail.Size = new System.Drawing.Size(404, 20);
-            this.ContactMail.TabIndex = 3;
+            this.ContactEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContactEmail.Enabled = false;
+            this.ContactEmail.Location = new System.Drawing.Point(86, 110);
+            this.ContactEmail.Name = "ContactEmail";
+            this.ContactEmail.Size = new System.Drawing.Size(404, 20);
+            this.ContactEmail.TabIndex = 3;
             // 
-            // ContactPhone
+            // ContactPhoneNumber
             // 
-            this.ContactPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ContactPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ContactPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ContactPhone.Enabled = false;
-            this.ContactPhone.Location = new System.Drawing.Point(86, 84);
-            this.ContactPhone.Name = "ContactPhone";
-            this.ContactPhone.Size = new System.Drawing.Size(404, 20);
-            this.ContactPhone.TabIndex = 2;
+            this.ContactPhoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ContactPhoneNumber.Enabled = false;
+            this.ContactPhoneNumber.Location = new System.Drawing.Point(86, 84);
+            this.ContactPhoneNumber.Name = "ContactPhoneNumber";
+            this.ContactPhoneNumber.Size = new System.Drawing.Size(404, 20);
+            this.ContactPhoneNumber.TabIndex = 2;
             // 
             // ContactName
             // 
@@ -384,6 +385,7 @@
             this.MenuItemExit.Name = "MenuItemExit";
             this.MenuItemExit.Size = new System.Drawing.Size(180, 22);
             this.MenuItemExit.Text = "Exit";
+            this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
             // 
             // MenuItemEdit
             // 
@@ -413,6 +415,7 @@
             this.MenuItemRemoveContact.Name = "MenuItemRemoveContact";
             this.MenuItemRemoveContact.Size = new System.Drawing.Size(180, 22);
             this.MenuItemRemoveContact.Text = "Remove contact";
+            this.MenuItemRemoveContact.Click += new System.EventHandler(this.MenuItemRemoveContact_Click);
             // 
             // MenuItemHelp
             // 
@@ -473,10 +476,10 @@
         private System.Windows.Forms.Label DateOfBirthLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label SurnameLabel;
-        private System.Windows.Forms.DateTimePicker ContactBirthday;
-        private System.Windows.Forms.TextBox ContactSite;
-        private System.Windows.Forms.TextBox ContactMail;
-        private System.Windows.Forms.TextBox ContactPhone;
+        private System.Windows.Forms.DateTimePicker ContactDateOfBirth;
+        private System.Windows.Forms.TextBox ContactVkId;
+        private System.Windows.Forms.TextBox ContactEmail;
+        private System.Windows.Forms.TextBox ContactPhoneNumber;
         private System.Windows.Forms.TextBox ContactName;
         private System.Windows.Forms.TextBox ContactSurname;
         private System.Windows.Forms.PictureBox BirthdayPictureBox;
