@@ -26,7 +26,6 @@ namespace ContactsApp.Model
             get => _number;
             set
             {
-                Console.WriteLine(value);
                 if (value.ToString().Length > _MAX_LENGTH)
                 {
                     throw new ArgumentException("The max length of a phone number is 11");

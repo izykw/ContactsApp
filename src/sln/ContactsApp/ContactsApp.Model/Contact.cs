@@ -40,7 +40,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Почта
         /// </summary>
-        private string _mail;
+        private string _email;
 
         /// <summary>
         /// Вк id
@@ -76,23 +76,20 @@ namespace ContactsApp.Model
         public string Name
         {
             get => _name;
-            set
-            {
-                _name = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
-            }
+            set => _name = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
         }
 
         public string Surname
         {
             get => _surname;
-            set
-            {
-                _surname = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
-            }
+            set => _surname = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
         }
 
-       
-        public PhoneNumber PhoneNumber { get; set; }
+        public PhoneNumber PhoneNumber
+        {
+            get => _phoneNumber;
+            set => _phoneNumber = value;
+        }
 
         public DateTime DateOfBirth
         {
@@ -107,34 +104,28 @@ namespace ContactsApp.Model
             }
         }
 
-        public string Mail
+        public string Email
         {
-            get => _mail;
-            set
-            {
-                _mail = CheckMaxLengthString(value, _MAX_LENGTH);
-            }
+            get => _email;
+            set => _email = CheckMaxLengthString(value, _MAX_LENGTH);
         }
 
         public string VkId
         {
             get => _vkId;
-            set
-            {
-                _vkId = CheckMaxLengthString(value, 15); ;
-            }
+            set => _vkId = CheckMaxLengthString(value, 15);
         }
 
-        public Contact(string name, string surname, PhoneNumber phoneNumber, DateTime dateOfBirth, string mail, string vkId)
+        public Contact(string name, string surname, PhoneNumber phoneNumber, DateTime dateOfBirth, string email, string vkId)
         {
             Name = name;
             Surname = surname;
             PhoneNumber = phoneNumber;
             DateOfBirth = dateOfBirth;
-            Mail = mail;
+            Email = email;
             VkId = vkId;
         }
         public object Clone() => 
-            new Contact(Name, Surname, new PhoneNumber(PhoneNumber.Number), DateOfBirth, Mail, VkId);
+            new Contact(Name, Surname, new PhoneNumber(PhoneNumber.Number), DateOfBirth, Email, VkId);
     }
 }
