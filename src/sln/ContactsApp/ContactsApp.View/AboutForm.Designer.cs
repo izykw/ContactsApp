@@ -43,7 +43,7 @@
             // 
             this.AppNameLabel.AutoSize = true;
             this.AppNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AppNameLabel.Location = new System.Drawing.Point(24, 21);
+            this.AppNameLabel.Location = new System.Drawing.Point(12, 9);
             this.AppNameLabel.Name = "AppNameLabel";
             this.AppNameLabel.Size = new System.Drawing.Size(148, 26);
             this.AppNameLabel.TabIndex = 0;
@@ -52,7 +52,7 @@
             // AppVersionLabel
             // 
             this.AppVersionLabel.AutoSize = true;
-            this.AppVersionLabel.Location = new System.Drawing.Point(26, 47);
+            this.AppVersionLabel.Location = new System.Drawing.Point(14, 35);
             this.AppVersionLabel.Name = "AppVersionLabel";
             this.AppVersionLabel.Size = new System.Drawing.Size(43, 13);
             this.AppVersionLabel.TabIndex = 1;
@@ -61,7 +61,7 @@
             // AppAuthorLabel
             // 
             this.AppAuthorLabel.AutoSize = true;
-            this.AppAuthorLabel.Location = new System.Drawing.Point(26, 95);
+            this.AppAuthorLabel.Location = new System.Drawing.Point(14, 76);
             this.AppAuthorLabel.Name = "AppAuthorLabel";
             this.AppAuthorLabel.Size = new System.Drawing.Size(128, 13);
             this.AppAuthorLabel.TabIndex = 3;
@@ -70,7 +70,7 @@
             // AuthorMailLabel
             // 
             this.AuthorMailLabel.AutoSize = true;
-            this.AuthorMailLabel.Location = new System.Drawing.Point(26, 148);
+            this.AuthorMailLabel.Location = new System.Drawing.Point(14, 125);
             this.AuthorMailLabel.Name = "AuthorMailLabel";
             this.AuthorMailLabel.Size = new System.Drawing.Size(101, 13);
             this.AuthorMailLabel.TabIndex = 2;
@@ -79,7 +79,7 @@
             // ProjectLabel
             // 
             this.ProjectLabel.AutoSize = true;
-            this.ProjectLabel.Location = new System.Drawing.Point(26, 173);
+            this.ProjectLabel.Location = new System.Drawing.Point(14, 147);
             this.ProjectLabel.Name = "ProjectLabel";
             this.ProjectLabel.Size = new System.Drawing.Size(43, 13);
             this.ProjectLabel.TabIndex = 4;
@@ -88,7 +88,7 @@
             // CopyrightLabel
             // 
             this.CopyrightLabel.AutoSize = true;
-            this.CopyrightLabel.Location = new System.Drawing.Point(26, 289);
+            this.CopyrightLabel.Location = new System.Drawing.Point(14, 289);
             this.CopyrightLabel.Name = "CopyrightLabel";
             this.CopyrightLabel.Size = new System.Drawing.Size(130, 13);
             this.CopyrightLabel.TabIndex = 5;
@@ -97,7 +97,7 @@
             // AuthorMailLink
             // 
             this.AuthorMailLink.AutoSize = true;
-            this.AuthorMailLink.Location = new System.Drawing.Point(133, 148);
+            this.AuthorMailLink.Location = new System.Drawing.Point(121, 125);
             this.AuthorMailLink.Name = "AuthorMailLink";
             this.AuthorMailLink.Size = new System.Drawing.Size(113, 13);
             this.AuthorMailLink.TabIndex = 6;
@@ -107,7 +107,7 @@
             // ProjectLink
             // 
             this.ProjectLink.AutoSize = true;
-            this.ProjectLink.Location = new System.Drawing.Point(75, 173);
+            this.ProjectLink.Location = new System.Drawing.Point(63, 147);
             this.ProjectLink.Name = "ProjectLink";
             this.ProjectLink.Size = new System.Drawing.Size(129, 13);
             this.ProjectLink.TabIndex = 7;
@@ -131,7 +131,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutForm";
             this.Text = "AboutForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

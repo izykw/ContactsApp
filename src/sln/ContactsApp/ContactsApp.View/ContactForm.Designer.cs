@@ -50,7 +50,7 @@
             // CompleteButton
             // 
             this.CompleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CompleteButton.Location = new System.Drawing.Point(196, 185);
+            this.CompleteButton.Location = new System.Drawing.Point(187, 185);
             this.CompleteButton.Name = "CompleteButton";
             this.CompleteButton.Size = new System.Drawing.Size(75, 23);
             this.CompleteButton.TabIndex = 24;
@@ -61,7 +61,7 @@
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.Location = new System.Drawing.Point(277, 185);
+            this.CancelButton.Location = new System.Drawing.Point(268, 185);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 23);
             this.CancelButton.TabIndex = 25;
