@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
