@@ -74,6 +74,9 @@
             // 
             // SplitContainer
             // 
+            this.SplitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SplitContainer.Location = new System.Drawing.Point(0, 27);
             this.SplitContainer.Name = "SplitContainer";
             // 
@@ -111,7 +114,7 @@
             this.FindLabel.AutoSize = true;
             this.FindLabel.Location = new System.Drawing.Point(9, 5);
             this.FindLabel.Name = "FindLabel";
-            this.FindLabel.Size = new System.Drawing.Size(30, 13);
+            this.FindLabel.Size = new System.Drawing.Size(39, 17);
             this.FindLabel.TabIndex = 3;
             this.FindLabel.Text = "Find:";
             // 
@@ -122,7 +125,7 @@
             this.FindContactTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FindContactTextBox.Location = new System.Drawing.Point(45, 3);
             this.FindContactTextBox.Name = "FindContactTextBox";
-            this.FindContactTextBox.Size = new System.Drawing.Size(204, 20);
+            this.FindContactTextBox.Size = new System.Drawing.Size(204, 22);
             this.FindContactTextBox.TabIndex = 2;
             // 
             // ContactListBox
@@ -133,10 +136,7 @@
             this.ContactListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ContactListBox.FormattingEnabled = true;
             this.ContactListBox.IntegralHeight = false;
-            this.ContactListBox.Items.AddRange(new object[] {
-            "Izy",
-            "Asta",
-            "Obito"});
+            this.ContactListBox.ItemHeight = 16;
             this.ContactListBox.Location = new System.Drawing.Point(12, 29);
             this.ContactListBox.Name = "ContactListBox";
             this.ContactListBox.Size = new System.Drawing.Size(237, 370);
@@ -230,7 +230,7 @@
             this.ContactBirthdayLabel.AutoSize = true;
             this.ContactBirthdayLabel.Location = new System.Drawing.Point(83, 53);
             this.ContactBirthdayLabel.Name = "ContactBirthdayLabel";
-            this.ContactBirthdayLabel.Size = new System.Drawing.Size(83, 13);
+            this.ContactBirthdayLabel.Size = new System.Drawing.Size(110, 17);
             this.ContactBirthdayLabel.TabIndex = 1;
             this.ContactBirthdayLabel.Text = "Name, Surname";
             // 
@@ -239,7 +239,7 @@
             this.Birthday.AutoSize = true;
             this.Birthday.Location = new System.Drawing.Point(83, 35);
             this.Birthday.Name = "Birthday";
-            this.Birthday.Size = new System.Drawing.Size(132, 13);
+            this.Birthday.Size = new System.Drawing.Size(170, 17);
             this.Birthday.TabIndex = 0;
             this.Birthday.Text = "Сегодня день рождения:";
             // 
@@ -248,7 +248,7 @@
             this.SiteLabel.AutoSize = true;
             this.SiteLabel.Location = new System.Drawing.Point(35, 138);
             this.SiteLabel.Name = "SiteLabel";
-            this.SiteLabel.Size = new System.Drawing.Size(45, 13);
+            this.SiteLabel.Size = new System.Drawing.Size(56, 17);
             this.SiteLabel.TabIndex = 11;
             this.SiteLabel.Text = "vk.com:";
             // 
@@ -257,7 +257,7 @@
             this.MailLabel.AutoSize = true;
             this.MailLabel.Location = new System.Drawing.Point(42, 112);
             this.MailLabel.Name = "MailLabel";
-            this.MailLabel.Size = new System.Drawing.Size(38, 13);
+            this.MailLabel.Size = new System.Drawing.Size(51, 17);
             this.MailLabel.TabIndex = 10;
             this.MailLabel.Text = "E-mail:";
             // 
@@ -266,7 +266,7 @@
             this.PhoneLabel.AutoSize = true;
             this.PhoneLabel.Location = new System.Drawing.Point(39, 86);
             this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(41, 13);
+            this.PhoneLabel.Size = new System.Drawing.Size(53, 17);
             this.PhoneLabel.TabIndex = 9;
             this.PhoneLabel.Text = "Phone:";
             // 
@@ -275,7 +275,7 @@
             this.DateOfBirthLabel.AutoSize = true;
             this.DateOfBirthLabel.Location = new System.Drawing.Point(12, 61);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(68, 13);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(90, 17);
             this.DateOfBirthLabel.TabIndex = 8;
             this.DateOfBirthLabel.Text = "Date of birth:";
             // 
@@ -284,7 +284,7 @@
             this.NameLabel.AutoSize = true;
             this.NameLabel.Location = new System.Drawing.Point(42, 31);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(38, 13);
+            this.NameLabel.Size = new System.Drawing.Size(49, 17);
             this.NameLabel.TabIndex = 7;
             this.NameLabel.Text = "Name:";
             // 
@@ -293,7 +293,7 @@
             this.SurnameLabel.AutoSize = true;
             this.SurnameLabel.Location = new System.Drawing.Point(28, 5);
             this.SurnameLabel.Name = "SurnameLabel";
-            this.SurnameLabel.Size = new System.Drawing.Size(52, 13);
+            this.SurnameLabel.Size = new System.Drawing.Size(69, 17);
             this.SurnameLabel.TabIndex = 6;
             this.SurnameLabel.Text = "Surname:";
             // 
@@ -302,7 +302,7 @@
             this.ContactDateOfBirth.Enabled = false;
             this.ContactDateOfBirth.Location = new System.Drawing.Point(86, 58);
             this.ContactDateOfBirth.Name = "ContactDateOfBirth";
-            this.ContactDateOfBirth.Size = new System.Drawing.Size(138, 20);
+            this.ContactDateOfBirth.Size = new System.Drawing.Size(138, 22);
             this.ContactDateOfBirth.TabIndex = 5;
             // 
             // ContactVkId
@@ -313,7 +313,7 @@
             this.ContactVkId.Enabled = false;
             this.ContactVkId.Location = new System.Drawing.Point(86, 136);
             this.ContactVkId.Name = "ContactVkId";
-            this.ContactVkId.Size = new System.Drawing.Size(404, 20);
+            this.ContactVkId.Size = new System.Drawing.Size(404, 22);
             this.ContactVkId.TabIndex = 4;
             // 
             // ContactEmail
@@ -324,7 +324,7 @@
             this.ContactEmail.Enabled = false;
             this.ContactEmail.Location = new System.Drawing.Point(86, 110);
             this.ContactEmail.Name = "ContactEmail";
-            this.ContactEmail.Size = new System.Drawing.Size(404, 20);
+            this.ContactEmail.Size = new System.Drawing.Size(404, 22);
             this.ContactEmail.TabIndex = 3;
             // 
             // ContactPhoneNumber
@@ -335,7 +335,7 @@
             this.ContactPhoneNumber.Enabled = false;
             this.ContactPhoneNumber.Location = new System.Drawing.Point(86, 84);
             this.ContactPhoneNumber.Name = "ContactPhoneNumber";
-            this.ContactPhoneNumber.Size = new System.Drawing.Size(404, 20);
+            this.ContactPhoneNumber.Size = new System.Drawing.Size(404, 22);
             this.ContactPhoneNumber.TabIndex = 2;
             // 
             // ContactName
@@ -346,7 +346,7 @@
             this.ContactName.Enabled = false;
             this.ContactName.Location = new System.Drawing.Point(86, 29);
             this.ContactName.Name = "ContactName";
-            this.ContactName.Size = new System.Drawing.Size(404, 20);
+            this.ContactName.Size = new System.Drawing.Size(404, 22);
             this.ContactName.TabIndex = 1;
             // 
             // ContactSurname
@@ -357,18 +357,19 @@
             this.ContactSurname.Enabled = false;
             this.ContactSurname.Location = new System.Drawing.Point(86, 3);
             this.ContactSurname.Name = "ContactSurname";
-            this.ContactSurname.Size = new System.Drawing.Size(404, 20);
+            this.ContactSurname.Size = new System.Drawing.Size(404, 22);
             this.ContactSurname.TabIndex = 0;
             // 
             // Menu
             // 
+            this.Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemFile,
             this.MenuItemEdit,
             this.MenuItemHelp});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(761, 24);
+            this.Menu.Size = new System.Drawing.Size(761, 28);
             this.Menu.TabIndex = 4;
             this.Menu.Text = "Menu";
             // 
@@ -377,13 +378,13 @@
             this.MenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemExit});
             this.MenuItemFile.Name = "MenuItemFile";
-            this.MenuItemFile.Size = new System.Drawing.Size(37, 20);
+            this.MenuItemFile.Size = new System.Drawing.Size(46, 24);
             this.MenuItemFile.Text = "File";
             // 
             // MenuItemExit
             // 
             this.MenuItemExit.Name = "MenuItemExit";
-            this.MenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemExit.Size = new System.Drawing.Size(116, 26);
             this.MenuItemExit.Text = "Exit";
             this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
             // 
@@ -394,26 +395,26 @@
             this.MenuItemEditContact,
             this.MenuItemRemoveContact});
             this.MenuItemEdit.Name = "MenuItemEdit";
-            this.MenuItemEdit.Size = new System.Drawing.Size(39, 20);
+            this.MenuItemEdit.Size = new System.Drawing.Size(49, 24);
             this.MenuItemEdit.Text = "Edit";
             // 
             // MenuItemAddContact
             // 
             this.MenuItemAddContact.Name = "MenuItemAddContact";
-            this.MenuItemAddContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemAddContact.Size = new System.Drawing.Size(199, 26);
             this.MenuItemAddContact.Text = "Add contact";
             this.MenuItemAddContact.Click += new System.EventHandler(this.MenuItemAddContact_Click);
             // 
             // MenuItemEditContact
             // 
             this.MenuItemEditContact.Name = "MenuItemEditContact";
-            this.MenuItemEditContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemEditContact.Size = new System.Drawing.Size(199, 26);
             this.MenuItemEditContact.Text = "Edit contact";
             // 
             // MenuItemRemoveContact
             // 
             this.MenuItemRemoveContact.Name = "MenuItemRemoveContact";
-            this.MenuItemRemoveContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemRemoveContact.Size = new System.Drawing.Size(199, 26);
             this.MenuItemRemoveContact.Text = "Remove contact";
             this.MenuItemRemoveContact.Click += new System.EventHandler(this.MenuItemRemoveContact_Click);
             // 
@@ -422,13 +423,13 @@
             this.MenuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemAbout});
             this.MenuItemHelp.Name = "MenuItemHelp";
-            this.MenuItemHelp.Size = new System.Drawing.Size(44, 20);
+            this.MenuItemHelp.Size = new System.Drawing.Size(55, 24);
             this.MenuItemHelp.Text = "Help";
             // 
             // MenuItemAbout
             // 
             this.MenuItemAbout.Name = "MenuItemAbout";
-            this.MenuItemAbout.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemAbout.Size = new System.Drawing.Size(133, 26);
             this.MenuItemAbout.Text = "About";
             this.MenuItemAbout.Click += new System.EventHandler(this.MenuItemAbout_Click);
             // 
