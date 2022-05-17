@@ -16,35 +16,42 @@ namespace ContactsApp.Model
         /// </summary>
         private const int MAXLETTERCOUNT = 50;
 
+
         /// <summary>
         /// Максимальная длина _vlId.
         /// </summary>
         private const int MAXIDSIZE = 15;
+
 
         /// <summary>
         /// Имя контакта.
         /// </summary>
         private string _name;
 
+
         /// <summary>
         /// Фамилия контакта.
         /// </summary>
         private string _surname;
+
 
         /// <summary>
         /// Дата рождения.
         /// </summary>
         private DateTime _dateOfBirth;
 
+
         /// <summary>
         /// Почта.
         /// </summary>
         private string _email;
 
+
         /// <summary>
         /// Вк id.
         /// </summary>
         private string _vkId;
+
 
         /// <summary>
         /// Возвращает строку, где первый символ возведен в верхний регистр.
@@ -56,6 +63,7 @@ namespace ContactsApp.Model
             return Char.ToUpper(value[0]) + value.Substring(1);
         }
 
+
         /// <summary>
         /// Возвращает строку, если она не превышает максимально допустимую длину, иначе - исключение.
         /// </summary>
@@ -65,12 +73,13 @@ namespace ContactsApp.Model
         /// <exception cref="ArgumentException"></exception>
         private static string CheckMaxLengthString(string value, int maxLength)
         {
-            if (value.Length > maxLength)
+            if (value.Length > maxLength || value.Length == 0)
             {
-                throw new ArgumentException($"The maximum number of characters is {maxLength}");
+                throw new ArgumentException($"The maximum number of characters is {maxLength} and field should not be empty");
             }
             return value;
         }
+
 
         /// <summary>
         /// Геттер и Сеттер для _name.
@@ -81,6 +90,7 @@ namespace ContactsApp.Model
             set => _name = FirstLetterToUpper(CheckMaxLengthString(value, MAXLETTERCOUNT));
         }
 
+
         /// <summary>
         /// Геттер и Сеттер для _surname.
         /// </summary>
@@ -90,10 +100,12 @@ namespace ContactsApp.Model
             set => _surname = FirstLetterToUpper(CheckMaxLengthString(value, MAXLETTERCOUNT));
         }
 
+
         /// <summary>
         /// Геттер и Сеттер для _phoneNumber.
         /// </summary>
         public PhoneNumber PhoneNumber { get; set; }
+
 
         /// <summary>
         /// Геттер и Сеттер для _dateOfBirth.
@@ -111,6 +123,7 @@ namespace ContactsApp.Model
             }
         }
 
+
         /// <summary>
         /// Геттер и Сеттер для _email.
         /// </summary>
@@ -120,6 +133,7 @@ namespace ContactsApp.Model
             set => _email = CheckMaxLengthString(value, MAXLETTERCOUNT);
         }
 
+
         /// <summary>
         /// Геттер и Сеттер для _vkId.
         /// </summary>
@@ -128,6 +142,7 @@ namespace ContactsApp.Model
             get => _vkId;
             set => _vkId = CheckMaxLengthString(value, MAXIDSIZE);
         }
+
 
         /// <summary>
         /// Конструктор для контакта.
@@ -147,6 +162,7 @@ namespace ContactsApp.Model
             Email = email;
             VkId = vkId;
         }
+
 
         /// <summary>
         /// Создает клон контакта.

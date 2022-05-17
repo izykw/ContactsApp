@@ -11,11 +11,13 @@ namespace ContactsApp.View
         /// </summary>
         private Project project { get; set; }
 
+
         public MainForm()
         {
             InitializeComponent();
             project = new Project();
         }
+
 
         /// <summary>
         /// Обновляет данные в ListBox.
@@ -30,6 +32,7 @@ namespace ContactsApp.View
             }
         }
         
+
         /// <summary>
         /// Добавляет новый контакт.
         /// </summary>
@@ -52,6 +55,7 @@ namespace ContactsApp.View
             project.Contacts.Add(newContact);
         }
 
+
         /// <summary>
         /// Удаляет контакт и обновляет ListBox.
         /// </summary>
@@ -73,6 +77,7 @@ namespace ContactsApp.View
             }
         }
 
+
         /// <summary>
         /// ВЫзывает форму с информацией о создателе.
         /// </summary>
@@ -83,6 +88,7 @@ namespace ContactsApp.View
             AboutForm aboutForm = new AboutForm();
             aboutForm.Show();
         }
+
 
         /// <summary>
         /// Добавляет контакт в ListBox и обновляет его.
@@ -95,6 +101,7 @@ namespace ContactsApp.View
             UpdateListBox();
         }
 
+
         /// <summary>
         /// Вызывает форму редактирования контакта.
         /// </summary>
@@ -105,6 +112,7 @@ namespace ContactsApp.View
             ContactForm contactForm = new ContactForm();
             contactForm.Show();
         }
+
 
         /// <summary>
         /// Добавляет контакт и обновлят ListBox.
@@ -117,6 +125,7 @@ namespace ContactsApp.View
             UpdateListBox();
         }
 
+
         /// <summary>
         /// Вызывает функцию RemoveContact.
         /// </summary>
@@ -127,6 +136,7 @@ namespace ContactsApp.View
             RemoveContact(ContactListBox.SelectedIndex);
         }
 
+
         /// <summary>
         /// Вызывает функцию RemoveContact.
         /// </summary>
@@ -136,6 +146,7 @@ namespace ContactsApp.View
         {
             RemoveContact(ContactListBox.SelectedIndex);
         }
+
 
         /// <summary>
         /// Очищает информацию о пользователе.
@@ -149,6 +160,7 @@ namespace ContactsApp.View
             ContactEmail.Clear();
             ContactVkId.Clear();
         }
+
 
         /// <summary>
         /// Выводит полную информацию о пользователе.
@@ -171,6 +183,7 @@ namespace ContactsApp.View
             ContactEmail.Text = contact.Email;
             ContactVkId.Text = contact.VkId;
         }
+
 
         /// <summary>
         /// Выхывает функцию UpdateSelectedContact.

@@ -16,10 +16,12 @@ namespace ContactsApp.Model
         /// </summary>
         private const int MAXLENGTH = 11;
 
+
         /// <summary>
         /// Номер телефона.
         /// </summary>
         private long _number;
+
 
         /// <summary>
         /// Геттер и Сеттер для _number.
@@ -29,13 +31,15 @@ namespace ContactsApp.Model
             get => _number;
             set
             {
-                if (value.ToString().Length > MAXLENGTH)
+                string newValue = value.ToString();
+                if (newValue.Length > MAXLENGTH || newValue[0] != '7')
                 {
-                    throw new ArgumentException("The max length of a phone number is 11");
+                    throw new ArgumentException("The max length of a phone number is 11 and it should start with 7");
                 }
                 _number = value;
             }
         }
+
 
         /// <summary>
         /// Конструктор для номера телефона
