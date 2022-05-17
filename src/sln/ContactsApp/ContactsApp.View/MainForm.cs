@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using ContactsApp.Model;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ContactsApp.View
 {
@@ -9,16 +11,24 @@ namespace ContactsApp.View
         /// <summary>
         /// Экземпляр класса Project.
         /// </summary>
-        private Project project { get; set; }
+        private Project Project { get; set; }
+
+
+        /// <summary>
+        /// Текущие объекты в списке
+        /// </summary>
+        private List<Contact> currentContacts;
 
 
         public MainForm()
         {
             InitializeComponent();
-            project = new Project();
-            AddRandomContact();
-            AddRandomContact();
-            AddRandomContact();
+            Project = new Project();
+            AddRandomContact(2);
+            AddRandomContact(0);
+            AddRandomContact(1);
+            currentContacts = new List<Contact>(Project.SortBySurname());
+            UpdateListBox();
         }
 
 
@@ -28,60 +38,59 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactListBox.Items.Clear();
-
-            foreach (Contact contact in project.Contacts)
+            currentContacts = currentContacts.OrderBy(contact => contact.Surname).ToList();
+            foreach (Contact contact in currentContacts)
             {
                 ContactListBox.Items.Add(contact.Surname);
             }
         }
-        
+
 
         /// <summary>
         /// Добавляет новый контакт.
         /// </summary>
-        private void AddRandomContact()
+        private void AddRandomContact(int index)
         {
             string[] names = new string[3] { "Obito", "Neji", "Naruto" };
-            string[] surnames = new string[3] { "Uchiha", "Hyugo", "Uzumaki" };
+            string[] surnames = new string[3] { "Raz", "Dva", "Tri" };
             string[] emails = new string[3] { "uchiha@gmail.com", "hyugo@gmail.com", "uzumaki@gmail.com" };
             string[] vkId = new string[3] { "mstun", "vsevizhy", "rasengan" };
 
-            Random random = new Random();
             Contact newContact = new Contact(
-                names[random.Next(names.Length)],
-                surnames[random.Next(surnames.Length)],
+                names[index],
+                surnames[index],
                 new PhoneNumber(79991234567),
                 DateTime.Now,
-                emails[random.Next(emails.Length)],
-                vkId[random.Next(vkId.Length)]);
+                emails[index],
+                vkId[index]);
             ContactListBox.Items.Add(newContact.Surname);
-            project.Contacts.Add(newContact);
+            Project.Contacts.Add(newContact);
         }
 
 
         /// <summary>
-        /// Добавляет контакта в список
+        /// Добавляет контакта в список.
         /// </summary>
         private void AddContact()
         {
             ContactForm contactForm = new ContactForm();
             DialogResult result = contactForm.ShowDialog();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 Contact newContact = contactForm.Contact;
-                project.Contacts.Add(newContact);
+                currentContacts.Add(newContact);
+                Project.Contacts.Add(newContact);
             }
-           
         }
 
 
         /// <summary>
-        /// Редактирует контакта в списке
+        /// Редактирует контакта в списке.
         /// </summary>
         private void EditContact(int index)
         {
-            if (ContactListBox.SelectedIndex == -1)
+            if (index == -1)
             {
                 MessageBox.Show("Choose contact");
                 return;
@@ -89,19 +98,26 @@ namespace ContactsApp.View
 
             ContactForm contactForm = new ContactForm();
 
-            Contact selectedContact = project.Contacts[index];
+            Contact selectedContact = currentContacts[index];
             contactForm.Contact = selectedContact;
 
             DialogResult result = contactForm.ShowDialog();
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 Contact updateContact = contactForm.Contact;
 
                 ContactListBox.Items.RemoveAt(index);
-                project.Contacts.RemoveAt(index);
 
-                project.Contacts.Insert(index, updateContact);
+                int contactIndex = Project.Contacts.FindIndex(contact => 
+                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+                currentContacts.RemoveAt(index);
+                currentContacts.Insert(index, updateContact);
+
+                Project.Contacts.RemoveAt(contactIndex);
+                Project.Contacts.Insert(contactIndex, updateContact);
+
                 ContactListBox.Items.Insert(index, updateContact.Surname);
             }
         }
@@ -119,12 +135,15 @@ namespace ContactsApp.View
                 throw new ArgumentException("Item not selected");
             }
 
-            DialogResult result = MessageBox.Show($"Do you really want to remove {project.Contacts[index].Surname}?",
+            DialogResult result = MessageBox.Show($"Do you really want to remove {currentContacts[index].Surname}?",
                 "Message", MessageBoxButtons.OKCancel);
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
-                project.Contacts.RemoveAt(index);
-                UpdateListBox();
+                int contactIndex = Project.Contacts.FindIndex(contact =>
+                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+                currentContacts.RemoveAt(index);
+                Project.Contacts.RemoveAt(contactIndex);
             }
         }
 
@@ -161,6 +180,7 @@ namespace ContactsApp.View
         private void EditContactButton_Click(object sender, EventArgs e)
         {
             EditContact(ContactListBox.SelectedIndex);
+            UpdateListBox();
         }
 
 
@@ -172,6 +192,7 @@ namespace ContactsApp.View
         private void MenuItemEditContact_Click(object sender, EventArgs e)
         {
             EditContact(ContactListBox.SelectedIndex);
+            UpdateListBox();
         }
 
 
@@ -195,6 +216,7 @@ namespace ContactsApp.View
         private void RemoveContactButton_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactListBox.SelectedIndex);
+            UpdateListBox();
         }
 
 
@@ -206,6 +228,7 @@ namespace ContactsApp.View
         private void MenuItemRemoveContact_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactListBox.SelectedIndex);
+            UpdateListBox();
         }
 
 
@@ -235,7 +258,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            Contact contact = project.Contacts[index];
+            Contact contact = currentContacts[index];
 
             ContactSurname.Text = contact.Surname;
             ContactName.Text = contact.Name;
@@ -251,7 +274,7 @@ namespace ContactsApp.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e) => 
+        private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e) =>
             UpdateSelectedContact(ContactListBox.SelectedIndex);
 
 
@@ -262,13 +285,20 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void MenuItemExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you really want to close application?", 
+            DialogResult result = MessageBox.Show("Do you really want to close application?",
                 "Message", MessageBoxButtons.OKCancel);
 
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 this.Close();
             }
+        }
+
+        private void FindContactTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string text = FindContactTextBox.Text;
+            currentContacts = Project.SearchBySurname(text);
+            UpdateListBox();
         }
     }
 }

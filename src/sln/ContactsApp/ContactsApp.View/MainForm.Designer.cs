@@ -127,6 +127,7 @@
             this.FindContactTextBox.Name = "FindContactTextBox";
             this.FindContactTextBox.Size = new System.Drawing.Size(204, 20);
             this.FindContactTextBox.TabIndex = 2;
+            this.FindContactTextBox.TextChanged += new System.EventHandler(this.FindContactTextBox_TextChanged);
             // 
             // ContactListBox
             // 
@@ -383,7 +384,7 @@
             // MenuItemExit
             // 
             this.MenuItemExit.Name = "MenuItemExit";
-            this.MenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemExit.Size = new System.Drawing.Size(93, 22);
             this.MenuItemExit.Text = "Exit";
             this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
             // 
@@ -400,21 +401,21 @@
             // MenuItemAddContact
             // 
             this.MenuItemAddContact.Name = "MenuItemAddContact";
-            this.MenuItemAddContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemAddContact.Size = new System.Drawing.Size(160, 22);
             this.MenuItemAddContact.Text = "Add contact";
             this.MenuItemAddContact.Click += new System.EventHandler(this.MenuItemAddContact_Click);
             // 
             // MenuItemEditContact
             // 
             this.MenuItemEditContact.Name = "MenuItemEditContact";
-            this.MenuItemEditContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemEditContact.Size = new System.Drawing.Size(160, 22);
             this.MenuItemEditContact.Text = "Edit contact";
             this.MenuItemEditContact.Click += new System.EventHandler(this.MenuItemEditContact_Click);
             // 
             // MenuItemRemoveContact
             // 
             this.MenuItemRemoveContact.Name = "MenuItemRemoveContact";
-            this.MenuItemRemoveContact.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemRemoveContact.Size = new System.Drawing.Size(160, 22);
             this.MenuItemRemoveContact.Text = "Remove contact";
             this.MenuItemRemoveContact.Click += new System.EventHandler(this.MenuItemRemoveContact_Click);
             // 
