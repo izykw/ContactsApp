@@ -42,7 +42,7 @@
             this.ContactName = new System.Windows.Forms.TextBox();
             this.ContactPhone = new System.Windows.Forms.TextBox();
             this.ContactEmail = new System.Windows.Forms.TextBox();
-            this.ContactBirthday = new System.Windows.Forms.DateTimePicker();
+            this.ContactDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.Container = new System.Windows.Forms.Panel();
             this.Container.SuspendLayout();
             this.SuspendLayout();
@@ -132,6 +132,7 @@
             this.ContactVkId.Name = "ContactVkId";
             this.ContactVkId.Size = new System.Drawing.Size(273, 20);
             this.ContactVkId.TabIndex = 32;
+            this.ContactVkId.TextChanged += new System.EventHandler(this.ContactVkId_TextChanged);
             // 
             // ContactSurname
             // 
@@ -142,6 +143,7 @@
             this.ContactSurname.Name = "ContactSurname";
             this.ContactSurname.Size = new System.Drawing.Size(273, 20);
             this.ContactSurname.TabIndex = 33;
+            this.ContactSurname.TextChanged += new System.EventHandler(this.ContactSurname_TextChanged);
             // 
             // ContactName
             // 
@@ -152,6 +154,7 @@
             this.ContactName.Name = "ContactName";
             this.ContactName.Size = new System.Drawing.Size(273, 20);
             this.ContactName.TabIndex = 34;
+            this.ContactName.TextChanged += new System.EventHandler(this.ContactName_TextChanged);
             // 
             // ContactPhone
             // 
@@ -162,6 +165,7 @@
             this.ContactPhone.Name = "ContactPhone";
             this.ContactPhone.Size = new System.Drawing.Size(273, 20);
             this.ContactPhone.TabIndex = 35;
+            this.ContactPhone.TextChanged += new System.EventHandler(this.ContactPhone_TextChanged);
             // 
             // ContactEmail
             // 
@@ -172,17 +176,19 @@
             this.ContactEmail.Name = "ContactEmail";
             this.ContactEmail.Size = new System.Drawing.Size(273, 20);
             this.ContactEmail.TabIndex = 36;
+            this.ContactEmail.TextChanged += new System.EventHandler(this.ContactEmail_TextChanged);
             // 
-            // ContactBirthday
+            // ContactDateOfBirth
             // 
-            this.ContactBirthday.Location = new System.Drawing.Point(70, 64);
-            this.ContactBirthday.Name = "ContactBirthday";
-            this.ContactBirthday.Size = new System.Drawing.Size(138, 20);
-            this.ContactBirthday.TabIndex = 37;
+            this.ContactDateOfBirth.Location = new System.Drawing.Point(70, 64);
+            this.ContactDateOfBirth.Name = "ContactDateOfBirth";
+            this.ContactDateOfBirth.Size = new System.Drawing.Size(138, 20);
+            this.ContactDateOfBirth.TabIndex = 37;
+            this.ContactDateOfBirth.ValueChanged += new System.EventHandler(this.ContactBirthday_ValueChanged);
             // 
             // Container
             // 
-            this.Container.Controls.Add(this.ContactBirthday);
+            this.Container.Controls.Add(this.ContactDateOfBirth);
             this.Container.Controls.Add(this.ContactEmail);
             this.Container.Controls.Add(this.ContactPhone);
             this.Container.Controls.Add(this.ContactName);
@@ -211,7 +217,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(250, 250);
             this.Name = "ContactForm";
-            this.Text = "ContactForm";
+            this.Text = "Add/Edit Contact";
             this.Container.ResumeLayout(false);
             this.Container.PerformLayout();
             this.ResumeLayout(false);
@@ -233,7 +239,7 @@
         private System.Windows.Forms.TextBox ContactName;
         private System.Windows.Forms.TextBox ContactPhone;
         private System.Windows.Forms.TextBox ContactEmail;
-        private System.Windows.Forms.DateTimePicker ContactBirthday;
+        private System.Windows.Forms.DateTimePicker ContactDateOfBirth;
         private System.Windows.Forms.Panel Container;
     }
 }

@@ -109,10 +109,10 @@
             this.ProjectLink.AutoSize = true;
             this.ProjectLink.Location = new System.Drawing.Point(63, 147);
             this.ProjectLink.Name = "ProjectLink";
-            this.ProjectLink.Size = new System.Drawing.Size(129, 13);
+            this.ProjectLink.Size = new System.Drawing.Size(99, 13);
             this.ProjectLink.TabIndex = 7;
             this.ProjectLink.TabStop = true;
-            this.ProjectLink.Text = "Amaterasud/ContactsApp";
+            this.ProjectLink.Text = "izykw/ContactsApp";
             // 
             // AboutForm
             // 
@@ -130,7 +130,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AboutForm";
-            this.Text = "AboutForm";
+            this.Text = "About";
             this.ResumeLayout(false);
             this.PerformLayout();
 
