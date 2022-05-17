@@ -16,6 +16,9 @@ namespace ContactsApp.View
         {
             InitializeComponent();
             project = new Project();
+            AddRandomContact();
+            AddRandomContact();
+            AddRandomContact();
         }
 
 
@@ -36,7 +39,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Добавляет новый контакт.
         /// </summary>
-        private void AddContact()
+        private void AddRandomContact()
         {
             string[] names = new string[3] { "Obito", "Neji", "Naruto" };
             string[] surnames = new string[3] { "Uchiha", "Hyugo", "Uzumaki" };
@@ -47,12 +50,60 @@ namespace ContactsApp.View
             Contact newContact = new Contact(
                 names[random.Next(names.Length)],
                 surnames[random.Next(surnames.Length)],
-                new PhoneNumber(random.Next()),
+                new PhoneNumber(79991234567),
                 DateTime.Now,
                 emails[random.Next(emails.Length)],
                 vkId[random.Next(vkId.Length)]);
-
+            ContactListBox.Items.Add(newContact.Surname);
             project.Contacts.Add(newContact);
+        }
+
+
+        /// <summary>
+        /// Добавляет контакта в список
+        /// </summary>
+        private void AddContact()
+        {
+            ContactForm contactForm = new ContactForm();
+            DialogResult result = contactForm.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                Contact newContact = contactForm.Contact;
+                project.Contacts.Add(newContact);
+            }
+           
+        }
+
+
+        /// <summary>
+        /// Редактирует контакта в списке
+        /// </summary>
+        private void EditContact(int index)
+        {
+            if (ContactListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose contact");
+                return;
+            }
+
+            ContactForm contactForm = new ContactForm();
+
+            Contact selectedContact = project.Contacts[index];
+            contactForm.Contact = selectedContact;
+
+            DialogResult result = contactForm.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                Contact updateContact = contactForm.Contact;
+
+                ContactListBox.Items.RemoveAt(index);
+                project.Contacts.RemoveAt(index);
+
+                project.Contacts.Insert(index, updateContact);
+                ContactListBox.Items.Insert(index, updateContact.Surname);
+            }
         }
 
 
@@ -79,7 +130,7 @@ namespace ContactsApp.View
 
 
         /// <summary>
-        /// ВЫзывает форму с информацией о создателе.
+        /// Вызывает форму с информацией о разработчике.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -109,8 +160,18 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditContactButton_Click(object sender, EventArgs e)
         {
-            ContactForm contactForm = new ContactForm();
-            contactForm.Show();
+            EditContact(ContactListBox.SelectedIndex);
+        }
+
+
+        /// <summary>
+        /// Вызывает форму редактирования контакта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItemEditContact_Click(object sender, EventArgs e)
+        {
+            EditContact(ContactListBox.SelectedIndex);
         }
 
 
