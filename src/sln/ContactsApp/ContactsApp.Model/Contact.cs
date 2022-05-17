@@ -168,7 +168,7 @@ namespace ContactsApp.Model
         /// Создает клон контакта.
         /// </summary>
         /// <returns></returns>
-        public Object Clone() => 
+        public object Clone() => 
             new Contact(Name, Surname, new PhoneNumber(PhoneNumber.Number), DateOfBirth, Email, VkId);
     }
 }

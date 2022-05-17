@@ -11,12 +11,35 @@ using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
+    //УЗНАТЬ МОЖНО ЛИ ДЕЛАТЬ КОНСТРУКТОР БЕЗ ПАРАМЕТРОВ. НО ТОГДА ПРИДЕТСЯ СОЗДАТЬ КОНСТРУКТОР ПО УМОЛЧАНИЮ И ДЛЯ НОМЕРА ТЕЛЕФОНА
     public partial class ContactForm : Form
     {
         /// <summary>
         /// Экземпляр контакта
         /// </summary>
         private Contact _contact;
+
+
+        /// <summary>
+        /// Геттер и Сеттер для контакта
+        /// </summary>
+        public Contact Contact
+        {
+            get => _contact;
+            set
+            {
+                _contact = (Contact)value.Clone();
+                if (value != null)
+                {
+                    ContactSurname.Text = _contact.Surname;
+                    ContactName.Text = _contact.Name;
+                    ContactDateOfBirth.Value = _contact.DateOfBirth;
+                    ContactPhone.Text = _contact.PhoneNumber.Number.ToString();
+                    ContactEmail.Text = _contact.Email;
+                    ContactVkId.Text = _contact.VkId;
+                }
+            }
+        }
 
 
         /// <summary>
@@ -67,15 +90,15 @@ namespace ContactsApp.View
 
 
         /// <summary>
-        /// Заполняет поля формы данными
+        /// Обновляет поля формы
         /// </summary>
         private void UpdateForm()
         {
             ContactSurname.Text = _contact.Surname;
             ContactName.Text = _contact.Name;
-            ContactEmail.Text = _contact.Email;
             ContactDateOfBirth.Value = _contact.DateOfBirth;
             ContactPhone.Text = _contact.PhoneNumber.Number.ToString();
+            ContactEmail.Text = _contact.Email;
             ContactVkId.Text = _contact.VkId;
         }
 
@@ -83,32 +106,40 @@ namespace ContactsApp.View
         /// <summary>
         /// Проверяет есть ли ошибки валидации в полях
         /// </summary>
-        private void CheckFormOnErrors()
+        private bool CheckFormOnErrors()
         {
+            bool isValid = true;
             if(_surnameError != "")
             {
                 MessageBox.Show(_surnameError);
+                isValid = false;
             }
             if (_nameError != "")
             {
                 MessageBox.Show(_nameError);
+                isValid = false;
             }
             if (_dateOfBirthError != "")
             {
                 MessageBox.Show(_dateOfBirthError);
+                isValid = false;
             }
             if (_phoneNumberError != "")
             {
                 MessageBox.Show(_phoneNumberError);
+                isValid = false;
             }
             if (_emailError != "")
             {
                 MessageBox.Show(_emailError);
+                isValid = false;
             }
             if (_vkIdError != "")
             {
                 MessageBox.Show(_vkIdError);
+                isValid = false;
             }
+            return isValid;
         }
 
 
@@ -117,7 +148,11 @@ namespace ContactsApp.View
         /// </summary>
         private void CompleteButton_Click(object sender, EventArgs e)
         {
-            CheckFormOnErrors();
+           if(CheckFormOnErrors())
+           {
+                DialogResult = DialogResult.OK;
+                this.Close();
+           }
         }
 
 
@@ -126,6 +161,7 @@ namespace ContactsApp.View
         /// </summary>
         private void CancelButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
