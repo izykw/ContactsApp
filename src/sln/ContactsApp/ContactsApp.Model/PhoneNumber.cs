@@ -30,9 +30,13 @@ namespace ContactsApp.Model
             set
             {
                 string newValue = value.ToString();
-                if (newValue.Length > MAXLENGTH) // || newValue[0] != '7'
+                if (newValue.Length > MAXLENGTH)
                 {
-                    throw new ArgumentException("The max length of a phone number is 11 and it should start with 7");
+                    throw new ArgumentException("The max length of a phone number is 11 and it ");
+                }
+                if (newValue.Length > 1 && newValue[0] != '7')
+                {
+                    throw new ArgumentException("Phone number should start with 7");
                 }
                 _number = value;
             }
