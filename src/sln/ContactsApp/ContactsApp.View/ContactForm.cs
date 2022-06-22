@@ -19,7 +19,6 @@ namespace ContactsApp.View
         /// </summary>
         private Contact _contact;
 
-
         /// <summary>
         /// Геттер и Сеттер для контакта.
         /// </summary>
@@ -41,42 +40,35 @@ namespace ContactsApp.View
             }
         }
 
-
         /// <summary>
         /// Сообщение об ошибке в поле _surname.
         /// </summary>
         private string _surnameError;
-
 
         /// <summary>
         /// Сообщение об ошибке в поле _name.
         /// </summary>
         private string _nameError;
 
-
         /// <summary>
         /// Сообщение об ошибке в поле _email.
         /// </summary>
         private string _emailError;
-
 
         /// <summary>
         /// Сообщение об ошибке в поле _vkId.
         /// </summary>
         private string _vkIdError;
 
-
         /// <summary>
         /// Сообщение об ошибке в поле _dateOfBirth.
         /// </summary>
         private string _dateOfBirthError;
 
-
         /// <summary>
         /// Сообщение об ошибке в поле _number.
         /// </summary>
         private string _phoneNumberError;
-
 
         /// <summary>
         /// Конструктор.
@@ -87,7 +79,6 @@ namespace ContactsApp.View
             _contact = new Contact("Postavte", "Avtomat", new PhoneNumber(79991234567), DateTime.Now, "spasibo@mail.ru", "helloWorld");
             UpdateForm();
         }
-
 
         /// <summary>
         /// Обновляет поля формы.
@@ -102,46 +93,43 @@ namespace ContactsApp.View
             ContactVkId.Text = _contact.VkId;
         }
 
-
         /// <summary>
         /// Проверяет есть ли ошибки валидации в полях.
         /// </summary>
         private bool CheckFormOnErrors()
         {
-            bool isValid = true;
+            string textError = "";
             if(_surnameError != "")
             {
-                MessageBox.Show(_surnameError);
-                isValid = false;
+                textError += "Enter surname\n";
             }
             if (_nameError != "")
             {
-                MessageBox.Show(_nameError);
-                isValid = false;
+                textError += "Enter name\n";
             }
             if (_dateOfBirthError != "")
             {
-                MessageBox.Show(_dateOfBirthError);
-                isValid = false;
+                textError += "Enter date of birth\n";
             }
             if (_phoneNumberError != "")
             {
-                MessageBox.Show(_phoneNumberError);
-                isValid = false;
+                textError += "Enter phone number\n";
             }
             if (_emailError != "")
             {
-                MessageBox.Show(_emailError);
-                isValid = false;
+                textError += "Enter email\n";
             }
             if (_vkIdError != "")
             {
-                MessageBox.Show(_vkIdError);
-                isValid = false;
+                textError += "Enter vk id\n";
             }
-            return isValid;
+            if(textError != "")
+            {
+                MessageBox.Show(textError);
+                return false;
+            }
+            return true;
         }
-
 
         /// <summary>
         /// Добавляет данные контакта.
@@ -155,7 +143,6 @@ namespace ContactsApp.View
            }
         }
 
-
         /// <summary>
         /// Закрывает форму.
         /// </summary>
@@ -164,7 +151,6 @@ namespace ContactsApp.View
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
 
         /// <summary>
         /// Отслеживает изменения в ContactSurname.
@@ -184,7 +170,6 @@ namespace ContactsApp.View
             }
         }
 
-
         /// <summary>
         /// Отслеживает изменения в ContactName.
         /// </summary>
@@ -202,7 +187,6 @@ namespace ContactsApp.View
                 _nameError = exception.Message;
             }
         }
-
 
         /// <summary>
         /// Отслеживает изменения в ContactPhone.
@@ -222,8 +206,6 @@ namespace ContactsApp.View
             }
         }
 
-
-
         /// <summary>
         /// Отслеживает изменения в ContactEmail.
         /// </summary>
@@ -242,8 +224,6 @@ namespace ContactsApp.View
             }
         }
 
-
-
         /// <summary>
         /// Отслеживает изменения в ContactVkId.
         /// </summary>
@@ -261,8 +241,6 @@ namespace ContactsApp.View
                 _vkIdError = exception.Message;
             }
         }
-
-
 
         /// <summary>
         /// Отслеживает изменения в ContactBirthday.
