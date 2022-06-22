@@ -16,7 +16,6 @@ namespace ContactsApp.Model
         /// </summary>
         public List<Contact> Contacts { get; set; } = new List<Contact>();
 
-
         /// <summary>
         /// Сортирует контакты по фамилии.
         /// </summary>
@@ -26,7 +25,6 @@ namespace ContactsApp.Model
             List<Contact> newList = Contacts.OrderBy(contact => contact.Surname).ToList();
             return newList;
         }
-
 
         /// <summary>
         /// Осуществляет поиск контактов по фамилии.
