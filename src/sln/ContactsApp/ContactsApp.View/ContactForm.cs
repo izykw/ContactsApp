@@ -11,7 +11,6 @@ using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
-    //УЗНАТЬ МОЖНО ЛИ ДЕЛАТЬ КОНСТРУКТОР БЕЗ ПАРАМЕТРОВ. НО ТОГДА ПРИДЕТСЯ СОЗДАТЬ КОНСТРУКТОР ПО УМОЛЧАНИЮ И ДЛЯ НОМЕРА ТЕЛЕФОНА
     public partial class ContactForm : Form
     {
         /// <summary>
@@ -70,9 +69,9 @@ namespace ContactsApp.View
         /// </summary>
         private string _phoneNumberError;
 
-        private Color _errorColor = Color.LightPink;
+        private readonly Color _errorColor = Color.LightPink;
 
-        private Color _defaultColor = Color.White;
+        private readonly Color _defaultColor = Color.White;
 
         /// <summary>
         /// Конструктор.
