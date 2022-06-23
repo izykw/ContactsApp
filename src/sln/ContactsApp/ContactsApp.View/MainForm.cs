@@ -16,14 +16,19 @@ namespace ContactsApp.View
         /// <summary>
         /// Текущие объекты в списке
         /// </summary>
-        private List<Contact> currentContacts;
+        private List<Contact> _currentContacts;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        string findText = "";
 
         public MainForm()
         {
             InitializeComponent();
             Project = new Project();
             Project = ProjectManager.LoadFromFile();
-            currentContacts = new List<Contact>(Project.SortBySurname());
+            _currentContacts = new List<Contact>(Project.SortBySurname());
             UpdateListBox();
         }
 
@@ -33,8 +38,9 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactListBox.Items.Clear();
-            currentContacts = currentContacts.OrderBy(contact => contact.Surname).ToList();
-            foreach (Contact contact in currentContacts)
+            _currentContacts = 
+                _currentContacts.OrderBy(contact => contact.Surname).ToList();
+            foreach (Contact contact in _currentContacts)
             {
                 ContactListBox.Items.Add(contact.Surname);
             }
@@ -51,7 +57,7 @@ namespace ContactsApp.View
             if (result == DialogResult.OK)
             {
                 Contact newContact = contactForm.Contact;
-                currentContacts.Add(newContact);
+                _currentContacts.Add(newContact);
                 Project.Contacts.Add(newContact);
                 ProjectManager.SaveToFile(Project);
             }
@@ -72,7 +78,7 @@ namespace ContactsApp.View
 
             ContactForm contactForm = new ContactForm();
 
-            Contact selectedContact = currentContacts[index];
+            Contact selectedContact = _currentContacts[index];
             contactForm.Contact = selectedContact;
 
             DialogResult result = contactForm.ShowDialog();
@@ -84,10 +90,11 @@ namespace ContactsApp.View
                 ContactListBox.Items.RemoveAt(index);
 
                 int contactIndex = Project.Contacts.FindIndex(contact => 
-                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+                (contact.Surname == _currentContacts[index].Surname 
+                && contact.PhoneNumber.Number == _currentContacts[index].PhoneNumber.Number));
 
-                currentContacts.RemoveAt(index);
-                currentContacts.Insert(index, updateContact);
+                _currentContacts.RemoveAt(index);
+                _currentContacts.Insert(index, updateContact);
 
                 Project.Contacts.RemoveAt(contactIndex);
                 Project.Contacts.Insert(contactIndex, updateContact);
@@ -95,6 +102,7 @@ namespace ContactsApp.View
                 ContactListBox.Items.Insert(index, updateContact.Surname);
                 ProjectManager.SaveToFile(Project);
             }
+            _currentContacts = Project.SearchBySurname(findText);
             ClearSelectedContact();
         }
 
@@ -111,14 +119,15 @@ namespace ContactsApp.View
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Do you really want to remove {currentContacts[index].Surname}?",
+            DialogResult result = MessageBox.Show($"Do you really want to remove {_currentContacts[index].Surname}?",
                 "Message", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
                 int contactIndex = Project.Contacts.FindIndex(contact =>
-                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+                (contact.Surname == _currentContacts[index].Surname 
+                && contact.PhoneNumber.Number == _currentContacts[index].PhoneNumber.Number));
 
-                currentContacts.RemoveAt(index);
+                _currentContacts.RemoveAt(index);
                 Project.Contacts.RemoveAt(contactIndex);
                 ProjectManager.SaveToFile(Project);
             }
@@ -227,7 +236,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            Contact contact = currentContacts[index];
+            Contact contact = _currentContacts[index];
 
             ContactSurname.Text = contact.Surname;
             ContactName.Text = contact.Name;
@@ -264,8 +273,8 @@ namespace ContactsApp.View
 
         private void FindContactTextBox_TextChanged(object sender, EventArgs e)
         {
-            string text = FindContactTextBox.Text;
-            currentContacts = Project.SearchBySurname(text);
+            findText = FindContactTextBox.Text;
+            _currentContacts = Project.SearchBySurname(findText);
             UpdateListBox();
             ClearSelectedContact();
         }

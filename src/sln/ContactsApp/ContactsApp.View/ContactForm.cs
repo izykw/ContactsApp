@@ -70,6 +70,10 @@ namespace ContactsApp.View
         /// </summary>
         private string _phoneNumberError;
 
+        private Color _errorColor = Color.LightPink;
+
+        private Color _defaultColor = Color.White;
+
         /// <summary>
         /// Конструктор.
         /// </summary>
@@ -160,12 +164,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Surname = ContactSurname.Text;
-                ContactSurname.BackColor = Color.White;
+                ContactSurname.BackColor = _defaultColor;
                 _surnameError = "";
             }
             catch (Exception exception)
             {
-                ContactSurname.BackColor = Color.LightPink;
+                ContactSurname.BackColor = _errorColor;
                 _surnameError = exception.Message;
             }
         }
@@ -178,12 +182,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Name = ContactName.Text;
-                ContactName.BackColor = Color.White;
+                ContactName.BackColor = _defaultColor;
                 _nameError = "";
             }
             catch (Exception exception)
             {
-                ContactName.BackColor = Color.LightPink;
+                ContactName.BackColor = _errorColor;
                 _nameError = exception.Message;
             }
         }
@@ -214,12 +218,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.Email = ContactEmail.Text;
-                ContactEmail.BackColor = Color.White;
+                ContactEmail.BackColor = _defaultColor;
                 _emailError = "";
             }
             catch (Exception exception)
             {
-                ContactEmail.BackColor = Color.LightPink;
+                ContactEmail.BackColor = _errorColor;
                 _emailError = exception.Message;
             }
         }
@@ -232,12 +236,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.VkId = ContactVkId.Text;
-                ContactVkId.BackColor = Color.White;
+                ContactVkId.BackColor = _defaultColor;
                 _vkIdError = "";
             }
             catch (Exception exception)
             {
-                ContactVkId.BackColor = Color.LightPink;
+                ContactVkId.BackColor = _errorColor;
                 _vkIdError = exception.Message;
             }
         }
@@ -250,12 +254,12 @@ namespace ContactsApp.View
             try
             {
                 _contact.DateOfBirth = ContactDateOfBirth.Value;
-                ContactDateOfBirth.BackColor = Color.White;
+                ContactDateOfBirth.BackColor = _defaultColor;
                 _dateOfBirthError = "";
             }
             catch (Exception exception)
             {
-                ContactDateOfBirth.BackColor = Color.LightPink;
+                ContactDateOfBirth.BackColor = _errorColor;
                 _dateOfBirthError = exception.Message;
             }
         }
