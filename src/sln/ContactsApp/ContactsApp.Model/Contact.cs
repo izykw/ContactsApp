@@ -77,6 +77,7 @@ namespace ContactsApp.Model
         /// </summary>
         public string Name
         {
+       
             get => _name;
             set => _name = FirstLetterToUpper(CheckMaxLengthString(value, MAXLETTERCOUNT));
         }
