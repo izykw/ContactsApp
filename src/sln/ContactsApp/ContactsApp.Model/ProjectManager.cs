@@ -13,7 +13,7 @@ namespace ContactsApp.Model
         /// <summary>
         /// Название файла.
         /// </summary>
-        private const string _fileName = "list_contacts";
+        private const string _fileName = "Contacts.Json";
 
         /// <summary>
         /// Путь к папке.
